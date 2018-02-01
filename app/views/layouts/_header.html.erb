@@ -1,0 +1,57 @@
+<header>
+<!--       <section class="section">
+      <div class="container"> -->
+        <div class="content">
+  <nav class="navbar" role="navigation" aria-label="main navigation" style="background: rgb(0, 0, 0);">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="#">
+        <h3 style="height: 10px;">
+          <span class="fas fa-bolt" style="color:white;">
+          </span>
+          <span style="color:white;">          
+            <strong>
+              &nbspCalorie Tracker
+            </strong>
+          </span>
+        </h3>
+      </a>
+
+      <button class="button navbar-burger" style="background: rgb(0, 0, 0);">
+      <span style="color:white;"></span>
+      <span style="color:white;"></span>
+      <span style="color:white;"></span>
+      </button>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <!-- navbar items -->
+      </div>
+
+      <div class="navbar-end">
+
+        <div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+          <%= link_to "Home", root_path, {:class=>"refresh"}%>
+        </div>
+        <% if user_signed_in? %>
+ <!--          <div>&nbsp&nbsp
+            <%#= link_to "History", announcements_history_path, {:class=>"refresh"}%>
+          </div> -->
+          <div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <%= link_to 'Sign out', destroy_user_session_path,{:method => :delete, :class=>"refresh"}%>
+          </div>
+        <% else %>
+          <div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <%= link_to "Sign up", new_user_registration_path, {:class=>"refresh"}%>
+          </div>
+          <div>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+              <%= link_to "Log in", new_user_session_path, {:class=>"refresh"}%>
+          </div>
+        <% end %>
+    </div>
+
+      </div>
+<!--     </div>
+  </section> -->
+
+</header>

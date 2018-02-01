@@ -1,2 +1,104 @@
-<h1>Calories#index</h1>
-<p>Find me in app/views/calories/index.html.erb</p>
+
+<% if @current_user %>
+	<p><%= gravatar_for @current_user %></p>
+  <h1><strong> &nbspWelcome <%= @current_user.name%> <%=@current_user.last_name %>&nbsp</strong></h1>
+  <p>The best day to workout is always today!</p>
+	<div>
+	  <%= link_to "Save a new calorie record", new_calorie_path, class: "button is-success is-rounded" %>
+	</div>
+<!--   <p>&nbsp&nbspShare what you're living at this moment by making a new post</p> -->
+
+<div class="columns is-multiline is-mobile">
+  <div class="column is-half">
+  <div>
+  	<br>
+    <% if @calories %>
+
+
+		<br><br>
+          <h3><strong>Historic review</strong></h3>
+      <%  @calories.each do |calorie| %>
+        <div>
+          <span>
+            <%= calorie.number %> cals - <%= calorie.c_type %>  - comment:
+            <%= calorie.content %>
+          </span>
+            <span>
+            &nbsp&nbsp&nbsp&nbsp
+            <%= link_to "view", calorie %>
+          </span>
+        </div>
+
+        <%# if Date.current - 1  < calorie.created_at && Date.current + 1  > calorie.created_at%>
+        
+        <%# end %>
+        <%# end %>
+
+        <%# if calorie.type == consumed%>
+        <%# if Date.current < calorie.expiration_date%>
+<!--         calorie.created_at -->
+        <%# end %>
+        <%# end %>
+      <% end %>
+    <% end %>
+    <br>
+    <p><%= page_entries_info @calories %></p>
+        <%= paginate @calories %>
+    
+  </div>
+  </div>
+  <br><br><br><br><br><br>
+  <div class="column is-half">
+
+
+  <div class="columns is-multiline is-mobile">
+    <div class="column">
+      <h3><strong><%= @current_user.name%>'s&nbsp&nbspDaily&nbsp&nbspBalance</strong></h3>
+<table style="width:80%">
+  <tr>
+    <th><h5>Calories Burnt</h5></th>
+    <th><h5>Calories Consumed</h5></th> 
+  </tr>
+  <tr>
+    <td>&nbsp&nbsp&nbsp&nbsp<%= @consolidated_day_array[0] %></td>
+    <td>&nbsp&nbsp&nbsp&nbsp<%= @consolidated_day_array[1] %></td> 
+  </tr>
+</table>
+
+
+
+<!--       <h4><strong>Filtra tus calorias</strong></h4><br> -->
+
+      <%#= form_for @calories do |f| %>
+
+<!--       <div class="field">
+        <%#= f.label :content %><br />
+        <%#= f.text_field :content, {:class=> 'input', :placeholder=> "content", :autofocus=> true, :autocomplete=> "content"}%>
+      </div>
+      <div class="field">
+        <%#= f.label :date %><br />
+        <%#= f.date_field :created_at, {:class=> 'input', :placeholder=> "myemail@example.com", :autofocus=> true, :autocomplete=> "email"}%>
+      </div>
+      <br>
+        <div class="actions">
+          <%#= f.submit "Search", {:class=>"button is-medium is-info is-focused"}  %>
+        </div>
+    <%# end %>
+ -->
+  </div>
+ </div>
+
+
+
+<% else %>
+  <section class="section">
+    <div class="container">
+    	<h1>Hello</h1>
+      	<h3>Please sign up or log in to start discovering the healthier world around you</h3>
+    </div>
+  </section>
+<% end %>
+
+
+
+

@@ -1,2 +1,16 @@
-<h1>Calories#show</h1>
-<p>Find me in app/views/calories/show.html.erb</p>
+
+<h2><strong>Calories</strong></h2>	
+<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= @calorie.number %></h4>
+<h2><strong>Comment</strong></h2>	
+<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= @calorie.content %></h4>
+<br>
+<div>
+  	<span>
+    &nbsp&nbsp&nbsp&nbsp
+    <%= link_to "Edit", edit_calorie_path(@calorie), {:method=>"", :class=> "button is-normal is-info is-outlined"} %>
+  </span>
+  <span>
+    &nbsp&nbsp&nbsp
+    <%= link_to "Delete", @calorie, method:"delete", class: "button is-normal is-danger is-outlined", data:{ :confirm=>"Are you sure you want to delete this record?"} %>
+  </span>
+</div>

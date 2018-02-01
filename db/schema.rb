@@ -18,15 +18,15 @@ ActiveRecord::Schema.define(version: 20180131224248) do
   create_table "calories", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "number"
-    t.datetime "date"
     t.string "content"
-    t.string "type"
+    t.string "c_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_calories_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "registries"
     t.string "name"
     t.string "last_name"
     t.string "email", default: "", null: false

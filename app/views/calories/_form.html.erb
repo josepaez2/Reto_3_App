@@ -1,0 +1,29 @@
+<!-- 
+<%# if @calorie.errors.any? %>
+  <div class="alert alert-danger" id="error_explanation">
+    <h2><%#= pluralize(@calorie.errors.count, "error") %> prohibited this article from being saved:</h2>
+    <ul>
+      <%# @calorie.errors.full_messages.each do |msg| %>
+      <li><%#= msg %></li>
+      <%# end %>
+    </ul>
+  </div>
+<%# end %> -->
+
+      <h1><strong> <%= @calorie.new_record? ? "Publish": "Edit" %> Calorie Record</strong></h1>
+      <br>
+      <%= form_for @calorie do |f| %>
+        <div class="form-group" style="width: 250px;">
+          <%= f.label :calorie, "Number" %>
+          <%= f.number_field :number, {:class=> 'input', :placeholder=> "Number of calories"} %>
+        </div>
+        <div class="form-group" style="width: 250px;">
+          <%= f.label :calorie, "Content" %>
+          <%= f.text_field :content, {:class=> 'textarea', :placeholder=> "Write your comment here"}  %>
+        </div>
+        <br>
+        <div class="actions text-right">
+          <%= f.submit "Burnt", class: "button is-normal is-success" %>
+          <%= f.submit "Consumed", class: "button is-normal is-danger" %>
+        </div>
+      <% end %>
