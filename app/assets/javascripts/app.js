@@ -2,18 +2,18 @@
   $(document).ready(function() {
 
    // $('.navbar-burger').on('click', function() {
-   $('#body').on('click', `.navbar-burger`, function() { 
+   $('#body').on('click', '.navbar-burger', function() { 
         $(this).toggleClass('is-active')
         $('.navbar-menu').toggleClass('is-active')
         // $('.done').append(this)
         // location.reload();
     })
 
-    $('#body').on('click', `.refresh`, function() { 
+    $('#body').on('click', '.refresh', function() { 
         location.reload();
     })
 
-    $('#body').on('click', `.delete`, function() { 
+    $('#body').on('click', '.delete', function() { 
         location.reload();
         // $(this).hide
     })
